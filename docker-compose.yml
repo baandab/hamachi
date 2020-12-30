@@ -17,4 +17,4 @@ services:
       options:
         max-size: "10M"
         max-file: "3"
-    image: 'baandab/hamachi:latest'
+    image: 'baandab/docker-hamachi-vpn:latest'
