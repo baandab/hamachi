@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+  hamachi:
+    container_name: hamachi
+    hostname: hamachi
+    volumes:
+      - /volume1/docker/hamachi/config:/var/lib/logmein-hamachi
+    network_mode: "host"
+    restart: 'unless-stopped'
+    privileged: true
+    environment:
+      - HAMACHI_VERSION=2.1.0.203-1
+	  - HAMACHI_ARCH=amd64.deb
+	  - HAMACHI_NAME=logmein-hamachi_$HAMACHI_VERSION_$HAMACHI_ARCH
+	  - HAMACHI_URL=https://www.vpn.net/installers/$HAMACHI_NAME
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10M"
+        max-file: "3"
+    image: 'baandab/hamachi:latest'
