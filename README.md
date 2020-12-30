@@ -17,11 +17,9 @@ Currently at Version: 2.1.0.203-1
 But you can set environment variables to override in your docker-compose.yml:
 
         environment:
-            - HAMACHI_ARCH=amd64.deb
-            - HAMACHI_NAME=logmein-hamachi_$HAMACHI_VERSION_$HAMACHI_ARCH
+            - HAMACHI_VERSION=2.1.0.203-1.amd64.deb
+            - HAMACHI_NAME=logmein-hamachi_$HAMACHI_VERSION
             - HAMACHI_URL=https://www.vpn.net/installers/$HAMACHI_NAME
-
-
 
 ## Setting up a Host
 

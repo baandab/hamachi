@@ -1,9 +1,9 @@
 FROM ubuntu:20.10
 
-ENV HAMACHI_VERSION 2.1.0.203-1
-ENV HAMACHI_ARCH amd64.deb
-ENV HAMACHI_NAME logmein-hamachi_$HAMACHI_VERSION_$HAMACHI_ARCH
+ENV HAMACHI_VERSION 2.1.0.203-1.amd64.deb
+ENV HAMACHI_NAME logmein-hamachi_$HAMACHI_VERSION
 ENV HAMACHI_URL https://www.vpn.net/installers/$HAMACHI_NAME
+
 
 RUN apt-get update
 
