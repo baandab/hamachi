@@ -12,7 +12,7 @@ To create a means of launching a Hamachi VPN client for hub / spoke configuratio
 
 ## Hamachi Release Version
 
-Currently at ENV HAMACHI_VERSION 2.1.0.203-1
+Currently at Version: 2.1.0.203-1
 
 But you can set environment variables to override in your docker-compose.yml:
 
@@ -34,6 +34,6 @@ Setup local Volume storage to ensure config persists between container rebuilds 
 
 When you build this for the first time, you'll need to ssh into the container and run:
 
-hamachi do-join 123-446-789    # this pushes a request to vpn.net to join your private network
+		hamachi do-join 123-446-789    # this pushes a request to vpn.net to join your private network
 
 Then login to vpn.net and approve the join request
