@@ -5,7 +5,7 @@ ENV HAMACHI_NAME logmein-hamachi_$HAMACHI_VERSION
 ENV HAMACHI_URL https://www.vpn.net/installers/$HAMACHI_NAME
 
 
-RUN apt-get update
+RUN apt-get update -qq
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget ssh inetutils-ping psmisc
 
@@ -15,8 +15,7 @@ RUN dpkg -i $HAMACHI_NAME
 COPY ["Scripts/hamachi_startup.sh", "/usr/local/bin/"]
 
 RUN cd "/usr/local/bin/" \
- && chmod +x "hamachi_startup.sh" \
- && cleanimage
+ && chmod +x "hamachi_startup.sh" 
 
 WORKDIR /usr/local/bin
 CMD ./hamach_startup.sh
