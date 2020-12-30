@@ -1,13 +1,13 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.10
 
 ENV HAMACHI_VERSION 2.1.0.203-1
 ENV HAMACHI_ARCH amd64.deb
 ENV HAMACHI_NAME logmein-hamachi_$HAMACHI_VERSION_$HAMACHI_ARCH
 ENV HAMACHI_URL https://www.vpn.net/installers/$HAMACHI_NAME
 
-RUN apt-get update -qq
+RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget ssh inetutils-ping psmisc
+RUN apt-get install psmisc wget ssh inetutils-ping
 
 RUN wget $HAMACHI_URL
 RUN dpkg -i $HAMACHI_NAME
