@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pwd
+
 start_daemon(){
   echo "Starting daemon..."
   /etc/init.d/logmein-hamachi force-reload
