@@ -7,7 +7,7 @@ ENV HAMACHI_URL https://www.vpn.net/installers/$HAMACHI_NAME
 
 RUN apt-get update
 
-RUN apt-get install psmisc wget ssh inetutils-ping
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget ssh inetutils-ping psmisc
 
 RUN wget $HAMACHI_URL
 RUN dpkg -i $HAMACHI_NAME
