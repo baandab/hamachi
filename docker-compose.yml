@@ -2,12 +2,11 @@ version: '3.3'
 
 services:
   hamachi:
-    container_name: hamachi
+    container_name: docker-hamachi-vpn
     hostname: hamachi
     volumes:
       - /volume1/docker/hamachi/config:/var/lib/logmein-hamachi
     network_mode: "host"
     restart: 'unless-stopped'
     privileged: true
-    log-driver: "syslog"
     image: 'baandab/docker-hamachi-vpn:latest'
