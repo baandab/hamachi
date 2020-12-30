@@ -9,12 +9,5 @@ services:
     network_mode: "host"
     restart: 'unless-stopped'
     privileged: true
-    environment:
-      - HAMACHI_VERSION=2.1.0.203-1
-      - HAMACHI_ARCH=amd64.deb
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10M"
-        max-file: "3"
+    log-driver: "syslog"
     image: 'baandab/docker-hamachi-vpn:latest'

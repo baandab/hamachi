@@ -14,12 +14,6 @@ To create a means of launching a Hamachi VPN client for hub / spoke configuratio
 
 Currently at Version: 2.1.0.203-1
 
-But you can set environment variables to override in your docker-compose.yml:
-
-        environment:
-            - HAMACHI_VERSION=2.1.0.203-1.amd64.deb
-            - HAMACHI_NAME=logmein-hamachi_$HAMACHI_VERSION
-            - HAMACHI_URL=https://www.vpn.net/installers/$HAMACHI_NAME
 
 ## Setting up a Host
 
@@ -30,7 +24,25 @@ Setup local Volume storage to ensure config persists between container rebuilds 
       - /volume1/docker/hamachi/config:/var/lib/logmein-hamachi
 
 
-When you build this for the first time, you'll need to ssh into the container and run:
+When you build this for the first time, you'll need to ssh into the container and join the network.
+
+The fastest way to build this is to download the docker-compose.yml, edit it and then run:
+
+		docker-compose up -d
+
+To log-in use the bash_hamachi.sh script (found in the Script folder):
+
+		#!/bin/sh
+		
+		# Name:
+		# -----
+		# bash_influx.sh
+		
+		ID=`/usr/local/bin/docker ps | grep hamachi | cut -f1 -d" "`
+		/usr/local/bin/docker exec -it --user=root $ID /bin/bash
+
+
+Then run
 
 		hamachi do-join 123-446-789    # this pushes a request to vpn.net to join your private network
 
