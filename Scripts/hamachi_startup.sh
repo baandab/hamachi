@@ -30,7 +30,6 @@ check_login(){
   done
   while [ 1 ]; do
     out=$(hamachi)
-    echo 2
     [[ $out =~ "logging in" ]] && sleep 1
     [[ $out =~ "logged in" ]] && break
   done

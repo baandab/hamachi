@@ -6,7 +6,13 @@ services:
     hostname: hamachi
     volumes:
       - /volume1/docker/hamachi/config:/var/lib/logmein-hamachi
+      - /etc/localtime:/etc/localtime
     network_mode: "host"
     restart: 'unless-stopped'
     privileged: true
+    privileged: true
+        logging:
+            driver: json-file
+            options:
+                max-size: "10m"
     image: 'baandab/docker-hamachi-vpn:latest'
