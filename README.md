@@ -5,10 +5,8 @@ Containerized Hamachi VPN
 
 ## Purpose
 
-To create a means of launching a Hamachi VPN client for hub / spoke configurations in a NAS or other environment that does not meet first-class support requirements for Hamachi on Linux but does have:
+To run Hamachi VPN client for hub / spoke configurations in a NAS or other environment
 
-* Support for tunnels
-* Support for Docker
 
 ## Hamachi Release Version
 
@@ -17,8 +15,9 @@ Currently at Version: 2.1.0.203-1
 
 ## Setting up a Host
 
+Container is running Ubuntu 20.10
 
-Setup local Volume storage to ensure config persists between container rebuilds in your docker-compose.yml:
+First, setup a local Volume storage to ensure config persists between container rebuilds in your docker-compose.yml:
 
     volumes:
       - /volume1/docker/hamachi/config:/var/lib/logmein-hamachi
@@ -28,15 +27,16 @@ When you build this for the first time, you'll need to ssh into the container an
 
 The fastest way to build this is to download the docker-compose.yml, edit it and then run:
 
+		docker pull -d
 		docker-compose up -d
 
-To log-in use the bash_hamachi.sh script (found in the Script folder):
+To log-in to the container use the *bash_hamachi.sh* script (found in the Scripts folder):
 
 		#!/bin/sh
 		
 		# Name:
 		# -----
-		# bash_influx.sh
+		# bash_hamachi.sh
 		
 		ID=`/usr/local/bin/docker ps | grep hamachi | cut -f1 -d" "`
 		/usr/local/bin/docker exec -it --user=root $ID /bin/bash
